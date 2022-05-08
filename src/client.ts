@@ -433,6 +433,15 @@ export class Client extends EventEmitter {
         .join(' ');
     }
 
+    //Add missing namespaces to xmlnsInEnvelope
+    for (const namespace of options.namespaces) {
+      if (this.wsdl.xmlnsInEnvelope.indexOf(namespace) == -1) {
+        this.wsdl.xmlnsInEnvelope = this.wsdl.xmlnsInEnvelope.concat(" ", namespace.trim());
+      }
+    }
+    xml = '<?xml version="1.0" encoding="utf-8"?>' +
+      '<' + envelopeKey + ':Envelope ' +
+      xmlnsSoap + ' ' +
     xml =
       '<?xml version="1.0" encoding="utf-8"?>' +
       '<' +
