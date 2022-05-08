@@ -426,7 +426,7 @@ export class Client extends EventEmitter {
     }
 
     //Add missing namespaces to xmlnsInEnvelope
-    for (const namespace of options.namespaces) {
+    for (const namespace of options.namespaces ?? []) {
       if (this.wsdl.xmlnsInEnvelope.indexOf(namespace) == -1) {
         this.wsdl.xmlnsInEnvelope = this.wsdl.xmlnsInEnvelope.concat(" ", namespace.trim());
       }
