@@ -439,9 +439,7 @@ export class Client extends EventEmitter {
         this.wsdl.xmlnsInEnvelope = this.wsdl.xmlnsInEnvelope.concat(" ", namespace.trim());
       }
     }
-    xml = '<?xml version="1.0" encoding="utf-8"?>' +
-      '<' + envelopeKey + ':Envelope ' +
-      xmlnsSoap + ' ' +
+  
     xml =
       '<?xml version="1.0" encoding="utf-8"?>' +
       '<' +
